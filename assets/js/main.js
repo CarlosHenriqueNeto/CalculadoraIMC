@@ -8,8 +8,6 @@ function calcularIMC() {
         evento.preventDefault();
         let peso = form.querySelector('.peso');
         let altura = form.querySelector('.altura');
-        peso = Number(peso.value);
-        altura = Number(altura.value);
         let [imc, grau] = logicaIMC(peso, altura);
 
         resultado.innerHTML = `Seu IMC é ${imc.toFixed(2)} (${grau})`;
@@ -17,6 +15,8 @@ function calcularIMC() {
     }
 
     function logicaIMC(peso, altura) {
+        peso = Number(peso.value);
+        altura = Number(altura.value);
         let imc = peso / ((altura / 100) * (altura / 100));
         let grau;
 
@@ -46,6 +46,7 @@ function calcularIMC() {
         }
 
     }
+    
     form.addEventListener('submit',recebeEventoForm);
 }
 calcularIMC();
